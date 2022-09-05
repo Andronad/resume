@@ -1,0 +1,6 @@
+export const CHANGE_THEME_MODE = "CHANGE_THEME_MODE";
+
+export const CHANGE_FILTER = "CHANGE_FILTER";
+export const TOGGLE_TODO_DONE = "TOGGLE_TODO_DONE";
+export const ADD_TODO = "ADD_TODO";
+export const REMOVE_TODO = "REMOVE_TODO";
