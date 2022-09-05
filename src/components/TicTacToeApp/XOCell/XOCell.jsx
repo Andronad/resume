@@ -3,21 +3,18 @@ import { useSelector } from "react-redux";
 import "./XOCell.scss";
 export const XOCEll = ({ cell, onClick }) => {
     const winnerCells = useSelector((state) => state.xo.winnerCells);
-    console.log({ x: cell.x, y: cell.y });
-    console.log(winnerCells);
-    const classNames =
+    const backgroundColor =
         winnerCells.findIndex((e) => e.x === cell.x && e.y === cell.y) !== -1
-            ? "winner-cell"
-            : "";
-    console.log(classNames);
+            ? "#b7fabb"
+            : "white";
     return (
         <Grid item onClick={onClick}>
             <Paper
                 sx={{
                     height: { xs: "100px", md: "200px" },
                     width: { xs: "100px", md: "200px" },
+                    backgroundColor: { backgroundColor },
                 }}
-                className={classNames}
             >
                 <Typography
                     align="center"
