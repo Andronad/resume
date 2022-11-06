@@ -8,7 +8,7 @@ import {
     Toolbar,
     Typography,
 } from "@mui/material";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { TowLabelSwitch } from "../common/TwoLabelSwitch/TwoLabelSwitch";
@@ -88,14 +88,14 @@ export const Navbar = () => {
                     }}
                 >
                     {pages.map((page) => (
-                        <>
-                            <StyledLink to={page.route} key={page.title}>
+                        <Fragment key={page.title}>
+                            <StyledLink to={page.route}>
                                 <Typography variant="h4">
                                     {page.title}
                                 </Typography>
                             </StyledLink>
                             <VerticalDivider />
-                        </>
+                        </Fragment>
                     ))}
                 </Box>
                 <TowLabelSwitch

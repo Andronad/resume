@@ -1,7 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import { Container } from "@mui/system";
 import { letterSpacingText } from "./../../styles/index";
-import "./AboutMe.scss";
+import styles from "./AboutMe.module.scss";
 import Experience from "./Experience";
 import ProfessionalProfile from "./ProfessionalProfile";
 import Skills from "./Skills";
@@ -9,7 +9,7 @@ import Skills from "./Skills";
 export const AboutMe = () => {
     return (
         <Container>
-            <Box className="about-me_content">
+            <Box className={styles.aboutMeContent}>
                 <Box>
                     <Typography
                         variant="h3"

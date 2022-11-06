@@ -11,14 +11,14 @@ export const XOCEll = ({ cell, onClick }) => {
         <Grid item onClick={onClick}>
             <Paper
                 sx={{
-                    height: { xs: "100px", md: "200px" },
-                    width: { xs: "100px", md: "200px" },
+                    height: { xs: "100px", md: "150px" },
+                    width: { xs: "100px", md: "150px" },
                     backgroundColor: { backgroundColor },
                 }}
             >
                 <Typography
                     align="center"
-                    sx={{ fontSize: { xs: 60, md: 120 } }}
+                    sx={{ fontSize: { xs: 60, md: 90 } }}
                 >
                     {cell.value}
                 </Typography>

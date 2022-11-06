@@ -1,5 +1,7 @@
 import Project from "./../classes/Project";
 
+export const HOST = "http://localhost:3002";
+
 export const hardSkills = [
     "•  Working experience in HTML, CSS",
     "•  Solid experience in JavaScript (ES5+)",

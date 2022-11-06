@@ -12,10 +12,8 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-    removeTodo,
-    toggleTodoDone,
-} from "../../../store/reducers/todoReducer";
+import { TOGGLE_TODO_REQUESTED } from "../../../store/sagas/sagaActions";
+import { REMOVE_TODO_REQUESTED } from "./../../../store/sagas/sagaActions";
 
 export const ToDoItem = ({ item }) => {
     const [openModal, setOpenModal] = useState(false);
@@ -27,7 +25,8 @@ export const ToDoItem = ({ item }) => {
     const handleCloseModal = () => setOpenModal(false);
 
     const deleteItem = () => {
-        dispatch(removeTodo(item.id));
+        dispatch(REMOVE_TODO_REQUESTED(item._id));
+        handleCloseModal();
     };
 
     const deleteHandler = () => {
@@ -53,7 +52,7 @@ export const ToDoItem = ({ item }) => {
                     cursor: "pointer",
                     width: "280px",
                 }}
-                onClick={() => dispatch(toggleTodoDone(item.id))}
+                onClick={() => dispatch(TOGGLE_TODO_REQUESTED(item._id))}
             >
                 <Typography sx={todoClasses}>{item.title}</Typography>
             </Paper>

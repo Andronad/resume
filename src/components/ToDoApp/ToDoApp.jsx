@@ -4,6 +4,10 @@ import { letterSpacingText } from "../../styles/index";
 import { useFilter, useTodos } from "./../../hooks/index";
 import { ToDoForm } from "./ToDoForm/ToDoForm";
 import ToDoItem from "./ToDoItem/index";
+import { Fragment, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { FETCH_TODOS_REQUESTED } from "./../../store/sagas/sagaActions";
+import { changeFilter } from "../../store/reducers/todoReducer";
 
 const ToDoApp = () => {
     const filter = useFilter();
@@ -11,6 +15,14 @@ const ToDoApp = () => {
     const showedTodos = useTodos().filter((e) =>
         e.title.toLowerCase().includes(filter.toLowerCase())
     );
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(FETCH_TODOS_REQUESTED);
+        return () => {
+            dispatch(changeFilter(""));
+        };
+    }, [dispatch]);
 
     const content =
         todosLength === 0 ? (
@@ -18,7 +30,11 @@ const ToDoApp = () => {
         ) : showedTodos.length === 0 ? (
             <Typography align="center">{"Can't find anything"}</Typography>
         ) : (
-            showedTodos.map((e) => <ToDoItem item={e} key={e.id} />)
+            showedTodos.map((e) => (
+                <Fragment key={e._id}>
+                    <ToDoItem item={e} />
+                </Fragment>
+            ))
         );
 
     return (
